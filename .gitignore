@@ -1,0 +1,9 @@
+# Compiled output
+node_modules/
+dist/lib
+
+# Logs
+yarn-error.log*
+
+# Development 
+.env
