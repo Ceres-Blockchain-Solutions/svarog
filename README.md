@@ -11,7 +11,7 @@ Svarog is a development framework that enables developers to seamlessly run and 
 ## Project structure
 To initiate a Substrate network node of your choice, begin by creating a **/runners** directory to store the binaries of the desired networks you wish to instantiate.
 
-### Important Note:
+## Important Note:
 
 The binary's naming is crucial, as the name serves as the identifier to launch the network and fetch the network provider. There is an example of the Svarog runner in action available at https://github.com/Ceres-Blockchain-Solutions/svarog-test. In this example, the pre-built Substrate Frame node template was used. **However, we recommend building the desired node on your own machine, as otherwise, there is a chance that the runner may not function properly.**
 
