@@ -1,42 +1,50 @@
-# Intro
+# Svarog
 
-Svarog is a development framework that enables developers to run and query local substrate networks of their choosing.
+## Intro
+Svarog is a development framework that enables developers to seamlessly run and query Substrate networks of their choice locally.
+
+
 
 # How to
 
+
 ## Project structure
+To initiate a Substrate network node of your choice, begin by creating a **/runners** directory to store the binaries of the desired networks you wish to instantiate.
 
-To run a desired substrate network node first create a **/runners** directory in which you will store the binaries of the networks which you would like to instantiate.
+### Important Note:
 
-### Notice
+The binary's naming is crucial, as the name serves as the identifier to launch the network and fetch the network provider. There is an example of the Svarog runner in action available at https://github.com/Ceres-Blockchain-Solutions/svarog-test. In this example, the pre-built Substrate Frame node template was used. **However, we recommend building the desired node on your own machine, as otherwise, there is a chance that the runner may not function properly.**
 
-The naming of the binary is important as the name itself will be used to start the network and retrieve the network provider.
 
 ### Example
 
-If a user wants to run a network that is based on the substrate frame node template he would place the properly named **frame** binary (the substrate frame node binary file) in the **/runners** directory.
+If a user intends to run a network utilizing the Substrate Frame node template, they should position the appropriately named **frame** binary (the Substrate frame node binary file) within the **/runners** directory. Take a look at the given example above.
+
+
 
 ## Running a network
 
-After importing your desired library simply run the **npx svarog [binary]** command in your terminal (binary represents the name of your desired node binary).
+Once you've imported your desired library, simply execute the command `npx svarog [binary]` in your terminal, where "binary" represents the name of your preferred node binary.
 
-### Notice
+### Note
+The terminal where the affirmation command is executed must remain open for the network to stay operational. Closing the terminal will result in the network shutting down.
 
-The terminal in which the affirmation command has been run must remain open for the network to keep running. If the terminal is closed the network will shut down.
+By default, Svarog will instantiate a network consisting of 3 nodes. Svarog has the capacity to concurrently run up to 3 different Substrate-based networks, as two identical networks cannot run simultaneously.
 
-By default, svarog will instantiate a network which consists of 3 nodes. Svarog can simultaneously run a maximum of 3 different substrate-based networks, as there can not be 2 identical networks running at the same time.
 
 ### Port allocation
 
-By default, svarog will use ports 10000 -> 10800 (HTTP ports), 9944 -> 9952 (WS/RPC ports), and 9954 -> 9962 (RPC ports). Please make sure that these ports are available on your local machine to successfully utilize Svarog.
+Svarog will, by default, utilize ports 10000 to 10800 (HTTP ports), 9944 to 9952 (WS/RPC ports), and 9954 to 9962 (RPC ports). Ensure that these ports are available on your local machine to successfully leverage Svarog.
+
+
 
 ## Connecting to network
 
-To connect to a svarog enabled network simply use the provided **_getNetworkProvider()_** function which will retrieve the desired network connection URL based on the binary name and desired type of connection.
+To establish a connection to a Svarog-enabled network, utilize the supplied *getNetworkProvider()* function. This function retrieves the desired network connection URL based on the binary name and the preferred connection type.
 
 ### Example
 
-Following the aforementioned example, if a user instantiates a frame node network and wishes to connect to it via a web socket connection he would use the following code snippet:
+Continuing from the earlier example, if a user has instantiated a Frame node network and intends to connect to it through a WebSocket connection, they would employ the following code snippet:
 
 ```node
 import { getNetworkProvider } from "svarog/utils";
@@ -59,6 +67,8 @@ main()
     });
 ```
 
+
 ## Stopping a network
 
-To stop a network simply press the Ctrl + C in the terminal that is running the initial network start command or simply close the terminal itself.
+To stop a network, simply press Ctrl + C in the terminal where the initial network start command is running, or alternatively, close the terminal itself.
+
